@@ -69,11 +69,24 @@ FROM recette, categorie
 WHERE recette.id_categorie = categorie.id_categorie
 ORDER BY categorie.id_categorie ASC
 */
-
+/*
 SELECT nom_recette
 FROM recette, composer, ingredient
-
-
+WHERE ingredient.nom_ingredient LIKE '%poulet%'
+AND ingredient.id_ingredient = composer.id_ingredient
+AND composer.id_recette = recette.id_recette
+*/
+/*
+UPDATE recette
+SET tps_preparation = tps_preparation - 5
+*/
+/*
+SELECT nom_recette, ingredient.prix
+FROM recette, composer, ingredient
+WHERE ingredient.prix <= 2
+AND ingredient.id_ingredient = composer.id_ingredient
+AND composer.id_recette = recette.id_recette
+*/
 
 
 
