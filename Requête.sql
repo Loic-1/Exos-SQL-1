@@ -104,16 +104,25 @@ AND composer.id_recette = recette.id_recette
 EXO 18
 */
 /*
+REMOVE FROM ingredient
+WHERE id_ingredient = 14
+*/
+/*
+REMOVE FROM recette
+WHERE id_recette = 14
+*/
 INSERT INTO ingredient
 (id_ingredient, nom_ingredient, unite_mesure, prix)
 VALUE
-(14, 'Poivre', 'Cuillère à café', 2.5)
-*/
-INSERT INTO ingredient, composer
+(15, 'textInsert15', 'Test', 1.5)
+
+/*/
+INSERT INTO composer
 (qte, id_recette, id_ingredient)
 VALUE
 (3, 9, 14)
-
+*/
+*/
 
 
 
