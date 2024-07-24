@@ -87,7 +87,22 @@ WHERE ingredient.prix <= 2
 AND ingredient.id_ingredient = composer.id_ingredient
 AND composer.id_recette = recette.id_recette
 */
+/*
+SELECT nom_recette, tps_preparation
+FROM recette
+ORDER BY tps_preparation
+LIMIT 3
+*/
+/*
+SELECT DISTINCT nom_recette
+FROM recette, composer, ingredient
+WHERE composer.qte = 0
+AND composer.id_recette = recette.id_recette
+*/
 
+/*
+EXO 19
+*/
 
 
 
