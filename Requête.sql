@@ -101,8 +101,20 @@ AND composer.id_recette = recette.id_recette
 */
 
 /*
-EXO 19
+EXO 18
 */
+/*
+INSERT INTO ingredient
+(id_ingredient, nom_ingredient, unite_mesure, prix)
+VALUE
+(14, 'Poivre', 'Cuillère à café', 2.5)
+*/
+INSERT INTO ingredient, composer
+(qte, id_recette, id_ingredient)
+VALUE
+(3, 9, 14)
+
+
 
 
 
