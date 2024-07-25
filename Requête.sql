@@ -1,7 +1,7 @@
 /*
 SELECT nom_recette, categorie.nom_categorie, tps_preparation
 FROM recette, categorie
-WHERE recette.id_categorie = categorie.id_categorie
+JOIN Categorie ON Recette.id_categorie = Categorie.id_categorie
 ORDER BY tps_preparation DESC
 */
 /*
@@ -124,8 +124,6 @@ VALUE
 (16, 'textInsert15', 'Test', 1.5)
 */
 
-
-
 /*
 INSERT INTO composer
 (qte, id_recette, id_ingredient)
@@ -133,56 +131,3 @@ VALUE
 (3, 9, 16)
 */
 
-/*INSERT INTO ingredient, composer*/
-
-
-
-
-
-
-
-
-
-/*SELECT nom_recette
-FROM recette
-WHERE tps_preparation >= 30
-ORDER BY tps_preparation DESC*/
-
-/*SELECT nom_recette
-FROM recette
-WHERE nom_recette LIKE '%Salade%'*/
-
-/*INSERT INTO recette
-(id_recette, nom_recette, tps_preparation, instructions, id_categorie)
-VALUES
-(11, 'Pâtes à la carbonara', 20, 'cuisiner', 2)*/
-
-/*UPDATE recette
-SET nom_recette = 'Salades'
-WHERE id_recette = 3*/
-
-/*DELETE FROM composer
-WHERE id_recette = 2*/
-
-/*DELETE FROM recette
-WHERE id_recette = 2*/
-
-/*
-EXO 8
-*/
-
-/*SELECT ingredient.nom_ingredient, composer.qte, ingredient.prix
-FROM ingredient, composer, recette
-WHERE id_recette = */
-
-/*INSERT INTO ingredient
-(id_ingredient, nom_ingredient, unite_mesure, prix)
-VALUES
-(10, 'Poivre', 'Cuillère à café', 2.5)*/
-
-/*UPDATE ingredient
-SET prix = 22
-WHERE id_ingredient = 12*/
-
-/*SELECT DISTINCT COUNT(nom_categorie)
-FROM recette, categorie*/
