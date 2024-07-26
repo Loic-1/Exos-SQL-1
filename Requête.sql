@@ -212,7 +212,7 @@
 -- WHERE id_ingredient = 15
 
 
-/*exo */
+/*exo 20*/
 
 -- SELECT r.nom_recette
 -- FROM recette r
