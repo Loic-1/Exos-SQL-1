@@ -1,8 +1,8 @@
 /*EXO 1*/
 
 -- SELECT nom_recette, categorie.nom_categorie, tps_preparation
--- FROM recette, categorie
--- JOIN categorie ON recette.id_categorie = categorie.id_categorie
+-- FROM recette r, categorie c
+-- INNER JOIN c ON r.id_categorie = c.id_categorie
 -- ORDER BY tps_preparation DESC
 
 
@@ -10,9 +10,9 @@
 
 
 -- SELECT nom_recette, categorie.nom_categorie, tps_preparation, COUNT(composer.id_ingredient) AS nbingredients
--- FROM recette, categorie, composer
--- JOIN categorie ON recette.id_categorie = categorie.id_categorie
--- JOIN composer ON recette.id_recette = composer.id_recette
+-- FROM recette r, categorie c, composer co
+-- INNER JOIN c ON r.id_categorie = c.id_categorie
+-- INNER JOIN co ON r.id_recette = co.id_recette
 -- ORDER BY tps_preparation DESC;
 
 
@@ -58,17 +58,17 @@
 /*EXO 8*/
 
 -- SELECT SUM(ingredient.prix)
--- FROM composer, ingredient
--- WHERE ingredient.id_ingredient = composer.id_ingredient
--- AND composer.id_recette = 5
+-- FROM composer co, ingredient i
+-- WHERE i.id_ingredient = co.id_ingredient
+-- AND co.id_recette = 5
 
 
 /*EXO 9*/
 
 -- SELECT ingredient.nom_ingredient, composer.qte, ingredient.unite_mesure, ingredient.prix
--- FROM ingredient, composer
--- WHERE ingredient.id_ingredient = composer.id_ingredient
--- AND composer.id_recette = 5
+-- FROM ingredient i, composer co
+-- WHERE i.id_ingredient = co.id_ingredient
+-- AND co.id_recette = 5
 
 
 /*EXO 10*/
@@ -87,26 +87,20 @@
 
 
 /*EXO 12*/
-/*FAUX
-SELECT categorie.nom_categorie, nom_recette, tps_preparation
-FROM recette, categorie
-WHERE recette.id_categorie = categorie.id_categorie
-ORDER BY categorie.id_categorie ASC
-*/
 
 -- SELECT categorie.nom_categorie, COUNT(recette.id_recette) AS nbrecettes
--- FROM recette, categorie
--- JOIN categorie ON recette.id_categorie = categorie.id_categorie
--- GROUP BY categorie.nom_categorie;
+-- FROM recette r, categorie c
+-- INNER JOIN c ON r.id_categorie = c.id_categorie
+-- GROUP BY c.nom_categorie;
 
 
 /*EXO 13*/
 
 -- SELECT nom_recette
--- FROM recette, composer, ingredient
--- WHERE ingredient.nom_ingredient LIKE '%poulet%'
--- AND ingredient.id_ingredient = composer.id_ingredient
--- AND composer.id_recette = recette.id_recette
+-- FROM recette r, composer co, ingredient i
+-- WHERE i.nom_ingredient LIKE '%poulet%'
+-- AND i.id_ingredient = co.id_ingredient
+-- AND co.id_recette = r.id_recette
 
 
 /*EXO 14*/
@@ -118,10 +112,10 @@ ORDER BY categorie.id_categorie ASC
 /*EXO 15*/
 
 -- SELECT nom_recette, ingredient.prix
--- FROM recette, composer, ingredient
--- WHERE ingredient.prix <= 2
--- AND ingredient.id_ingredient = composer.id_ingredient/*JOIN PLUS LOGIQUE*/
--- AND composer.id_recette = recette.id_recette
+-- FROM r, co, i
+-- WHERE i.prix <= 2
+-- AND i.id_ingredient = co.id_ingredient/*INNER JOIN PLUS LOGIQUE*/
+-- AND co.id_recette = r.id_recette
 
 
 /*EXO 16*/
@@ -135,17 +129,17 @@ ORDER BY categorie.id_categorie ASC
 /*EXO 17*/
 
 -- SELECT DISTINCT nom_recette
--- FROM recette, composer, ingredient
--- WHERE composer.qte = 0
--- AND composer.id_recette = recette.id_recette
+-- FROM recette r, composer co, ingredient i
+-- WHERE co.qte = 0
+-- AND co.id_recette = r.id_recette
 
 
 /*EXO 18*/
 
 -- SELECT ingredient.nom_ingredient,COUNT(DISTINCT composer.id_recette) AS nbrecettes
--- FROM composer, ingredient
--- JOIN ingredient ON composer.id_ingredient = ingredient.id_ingredient
--- HAVING COUNT(DISTINCT composer.id_recette) > 2;
+-- FROM composer co, ingredient i
+-- INNER JOIN i ON co.id_ingredient = i.id_ingredient
+-- HAVING COUNT(DISTINCT co.id_recette) > 2;
 
 
 /*EXO 19*/
