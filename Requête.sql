@@ -69,10 +69,12 @@
 
 /*EXO 8*/
 
--- SELECT SUM(ingredient.prix)
--- FROM composer co, ingredient i
--- WHERE i.id_ingredient = co.id_ingredient
--- AND co.id_recette = 5
+-- SELECT r.id_recette, r.nom_recette, SUM(c.qte * i.prix) AS prix_total
+-- FROM recette r
+-- JOIN composer c ON r.id_recette = c.id_recette
+-- JOIN ingredient i ON c.id_ingredient = i.id_ingredient
+-- WHERE r.id_recette = 30
+-- GROUP BY r.id_recette, r.nom_recette;
 
 
 /*EXO 9*/
@@ -213,9 +215,9 @@
 
 
 /*exo 20*/
+/*
+SELECT r.nom_recette, SUM(i.prix * co.qte)
+FROM recette r, composer co, ingredient i
+WHERE r.id_recette IN (
 
--- SELECT r.nom_recette
--- FROM recette r
--- WHERE r.id_recette IN (
-
--- )
+)*/
