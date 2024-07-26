@@ -9,11 +9,12 @@
 /*EXO 2*/
 
 
--- SELECT nom_recette, categorie.nom_categorie, tps_preparation, COUNT(composer.id_ingredient) AS nbingredients
--- FROM recette r, categorie c, composer co
--- INNER JOIN c ON r.id_categorie = c.id_categorie
--- INNER JOIN co ON r.id_recette = co.id_recette
--- ORDER BY tps_preparation DESC;
+SELECT nom_recette, categorie.nom_categorie, tps_preparation, COUNT(composer.id_ingredient) AS nbingredients
+FROM recette r, categorie c, composer co
+INNER JOIN c ON r.id_categorie = c.id_categorie
+INNER JOIN co ON r.id_recette = co.id_recette
+GROUP BY 
+ORDER BY tps_preparation DESC;
 
 
 /*EXO 3*/
@@ -35,8 +36,19 @@
 -- INSERT INTO recette
 -- (id_recette, nom_recette, tps_preparation, instructions, id_categorie)
 -- VALUE
--- (11, 'Pâtes à la carbonara', 20, 'cuire', 2)
+-- (1, 'Pâtes à la carbonara', 20, 'cuire', 2)
 
+
+-- INSERT INTO ingredient
+-- (id_ingredient, nom_ingredient, unite_mesure, prix)
+-- VALUES
+-- (1, 'pâte', 'kg', 11)
+
+
+-- INSERT INTO composer
+-- (qte, id_recette, id_ingredient)
+-- VALUES
+-- (1, 1, 1)
 
 /*EXO 6*/
 
