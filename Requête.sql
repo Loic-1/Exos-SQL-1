@@ -9,12 +9,12 @@
 /*EXO 2*/
 
 
-SELECT nom_recette, categorie.nom_categorie, tps_preparation, COUNT(composer.id_ingredient) AS nbingredients
-FROM recette r, categorie c, composer co
-INNER JOIN c ON r.id_categorie = c.id_categorie
-INNER JOIN co ON r.id_recette = co.id_recette
-GROUP BY 
-ORDER BY tps_preparation DESC;
+-- SELECT nom_recette, categorie.nom_categorie, tps_preparation, COUNT(composer.id_ingredient) AS nbingredients
+-- FROM recette r, categorie c, composer co
+-- INNER JOIN c ON r.id_categorie = c.id_categorie
+-- INNER JOIN co ON r.id_recette = co.id_recette
+-- GROUP BY nom_recette, c.nom_categorie, tps_preparation
+-- ORDER BY tps_preparation DESC;
 
 
 /*EXO 3*/
@@ -123,27 +123,62 @@ ORDER BY tps_preparation DESC;
 
 /*EXO 15*/
 
+-- /*OLD*/
 -- SELECT nom_recette, ingredient.prix
 -- FROM r, co, i
 -- WHERE i.prix <= 2
--- AND i.id_ingredient = co.id_ingredient/*INNER JOIN PLUS LOGIQUE*/
+-- AND i.id_ingredient = co.id_ingredient
 -- AND co.id_recette = r.id_recette
+
+
+-- /*CORRECTION*/
+-- SELECT r.nom_recette, i.prix
+-- FROM recette r, composer co, ingredient i
+-- WHERE r.id_recette NOT IN (
+--     SELECT co.id_recette
+--     FROM composer co, recette r, ingredient i
+--     WHERE i.prix <= 2
+--     AND i.id_ingredient = co.id_ingredient
+--     AND co.id_recette = r.id_recette
+-- )
 
 
 /*EXO 16*/
 
+-- /*OLD*/
 -- SELECT nom_recette, tps_preparation
 -- FROM recette
 -- ORDER BY tps_preparation
 -- LIMIT 3
 
+-- /*CORRECTION*/
+-- SELECT r.nom_recette, r.tps_preparation
+-- FROM recette r
+-- WHERE r.tps_preparation IN(
+--     SELECT r.tps_preparation
+--     FROM recette r
+--     ORDER BY r.tps_preparation
+--     LIMIT 3
+-- )
+
 
 /*EXO 17*/
 
+/*OLD*/
 -- SELECT DISTINCT nom_recette
 -- FROM recette r, composer co, ingredient i
 -- WHERE co.qte = 0
 -- AND co.id_recette = r.id_recette
+
+
+-- /*correction*/
+-- SELECT r.nom_recette
+-- FROM recette r
+-- WHERE r.id_recette NOT IN (
+--     SELECT co.id_recette
+--     FROM composer co
+--     WHERE co.qte >= 1
+-- )
 
 
 /*EXO 18*/
@@ -151,7 +186,7 @@ ORDER BY tps_preparation DESC;
 -- SELECT ingredient.nom_ingredient,COUNT(DISTINCT composer.id_recette) AS nbrecettes
 -- FROM composer co, ingredient i
 -- INNER JOIN i ON co.id_ingredient = i.id_ingredient
--- HAVING COUNT(DISTINCT co.id_recette) > 2;
+-- HAVING nbrecettes > 2;
 
 
 /*EXO 19*/
@@ -175,3 +210,12 @@ ORDER BY tps_preparation DESC;
 
 -- REMOVE FROM composer
 -- WHERE id_ingredient = 15
+
+
+/*exo */
+
+-- SELECT r.nom_recette
+-- FROM recette r
+-- WHERE r.id_recette IN (
+
+-- )
