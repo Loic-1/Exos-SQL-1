@@ -10,7 +10,8 @@
 !.gitignore
 !detailRecette.php
 !index.php
+!indisponible.jpg
 !Looping1.loo
-!recettes_creation.sql
+!recettes_creation_V2.sql
 !Requête.sql
 !style.php
