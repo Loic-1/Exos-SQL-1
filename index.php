@@ -1,9 +1,11 @@
 <html>
+
 <body>
 
-<h2>BDD Recettes</h2><br><br>
+    <h2>BDD Recettes</h2><br><br>
 
 </body>
+
 </html>
 
 
@@ -31,10 +33,10 @@ echo '<tr><th>Recette</th> <th>Catégorie</th> <th>Temps de préparation</th> <t
 foreach ($recipes as $recipe) {
 ?>
     <tr>
-        <td>  <a href="detailRecette.php?id=<?php echo $recipe['id_recette']; ?>&nom=<?php echo $recipe['nom_recette']; ?>">  <?php echo $recipe['nom_recette']; ?></a></td>
+        <td> <a href="detailRecette.php?id=<?php echo $recipe['id_recette']; ?>&nom=<?php echo $recipe['nom_recette']; ?>"> <?php echo $recipe['nom_recette']; ?></a></td>
         <td><?php echo $recipe['nom_categorie']; ?></td>
         <td><?php echo $recipe['tps_preparation']; ?> minutes</td>
-        <td><img src="<?php echo $recipe['image_recette']; ?>" alt=""></td>
+        <td><img src="<?php echo $recipe['image_recette'] ?>" alt=""></td>
     </tr>
 <?php
 }

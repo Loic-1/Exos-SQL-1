@@ -1,9 +1,11 @@
 <html>
+
 <body>
 
-<h2>Détails pour la recette "<?php echo $_GET["nom"]; ?>": </h2><br><br>
+    <h2>Détails pour la recette "<?php echo $_GET["nom"]; ?>": </h2><br><br>
 
 </body>
+
 </html>
 
 
@@ -19,7 +21,7 @@ try {
 $sqlQuery = 'SELECT r.nom_recette, r.instructions, c.nom_categorie, r.tps_preparation, r.image_recette
 FROM recette r
 INNER JOIN categorie c ON r.id_categorie = c.id_categorie
-WHERE r.id_recette = '.$_GET["id"].'';
+WHERE r.id_recette = ' . $_GET["id"] . '';
 $recipesStatement = $mysqlClient->prepare($sqlQuery);
 $recipesStatement->execute();
 $recipes = $recipesStatement->fetchAll();
@@ -34,7 +36,7 @@ foreach ($recipes as $recipe) {
         <td><?php echo $recipe['instructions']; ?></a></td>
         <td><?php echo $recipe['nom_categorie']; ?></td>
         <td><?php echo $recipe['tps_preparation']; ?> minutes</td>
-        <td><img src="<?php echo $recipe['image_recette']?>" alt=""></td>
+        <td><img src="<?php echo $recipe['image_recette'] ?>" alt=""></td>
     </tr>
 <?php
 }
@@ -47,7 +49,7 @@ $sqlQuery = 'SELECT i.nom_ingredient, co.qte
 FROM recette r
 INNER JOIN composer co ON r.id_recette = co.id_recette
 INNER JOIN ingredient i ON co.id_ingredient = i.id_ingredient
-WHERE r.id_recette = '.$_GET["id"].'';
+WHERE r.id_recette = ' . $_GET["id"] . '';
 $ingredientsStatement = $mysqlClient->prepare($sqlQuery);
 $ingredientsStatement->execute();
 $ingredients = $ingredientsStatement->fetchAll();
