@@ -28,7 +28,7 @@ $recipes = $recipesStatement->fetchAll();
 
 
 echo '<table>';
-echo '<tr><th>Recette</th> <th>Instructions</th> <th>Catégorie</th> <th>Temps de préparation</th></tr>';
+echo '<tr><th>Recette</th> <th>Instructions</th> <th>Catégorie</th> <th>Temps de préparation</th> <th>Image</th></tr>';
 foreach ($recipes as $recipe) {
 ?>
     <tr>
