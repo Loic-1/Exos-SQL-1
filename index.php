@@ -1,3 +1,14 @@
+<html>
+<body>
+
+<h2>BDD Recettes</h2><br><br>
+
+</body>
+</html>
+
+
+
+
 <?php
 try {
     $mysqlClient = new PDO('mysql:host=localhost;dbname=exo_recettes;charset=utf8', 'root', '');

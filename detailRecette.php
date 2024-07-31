@@ -42,12 +42,12 @@ echo '</table>';
 
 
 
-$sqlQuery2 = 'SELECT i.nom_ingredient, co.qte
+$sqlQuery = 'SELECT i.nom_ingredient, co.qte
 FROM recette r
 INNER JOIN composer co ON r.id_recette = co.id_recette
 INNER JOIN ingredient i ON co.id_ingredient = i.id_ingredient
 WHERE r.id_recette = '.$_GET["id"].'';
-$ingredientsStatement = $mysqlClient->prepare($sqlQuery2);
+$ingredientsStatement = $mysqlClient->prepare($sqlQuery);
 $ingredientsStatement->execute();
 $ingredients = $ingredientsStatement->fetchAll();
 

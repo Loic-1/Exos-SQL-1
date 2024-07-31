@@ -4,7 +4,11 @@
         margin: 0;
         box-sizing: border-box;
     }
-    
+
+    body{
+        font-family: sans-serif;
+    }
+
     table,
     th,
     td{
