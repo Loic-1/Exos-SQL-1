@@ -1,6 +1,6 @@
 <?php
 try {
-    $mysqlClient = new PDO('mysql:host=localhost;dbname=recettes;charset=utf8', 'root', '');
+    $mysqlClient = new PDO('mysql:host=localhost;dbname=exo_recettes;charset=utf8', 'root', '');
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
@@ -14,16 +14,25 @@ $recipesStatement = $mysqlClient->prepare($sqlQuery);
 $recipesStatement->execute();
 $recipes = $recipesStatement->fetchAll();
 
-echo '<table border="1" style="border-collapse: collapse;">';
+// $minute = "";
+// if($recipe['tps_preparation' > 1]){
+//     $minute = "minutes";           
+// }
+// else {
+//     $minute = "minute";
+// }
+
+
+echo '<table border="1" style="border-collapse: collapse; text-align: center;">';
 echo '<tr><th>Recette</th> <th>Catégorie</th> <th>Temps de préparation</th></tr>';
 foreach ($recipes as $recipe) {
 ?>
     <tr>
         <td><?php echo $recipe['nom_recette']; ?></td>
         <td><?php echo $recipe['nom_categorie']; ?></td>
-        <td><?php echo $recipe['tps_preparation']; ?></td>
+        <td><?php echo $recipe['tps_preparation']; ?> minutes</td>
     </tr>
 <?php
-echo '</table>';
 }
+echo '</table>';
 ?>
