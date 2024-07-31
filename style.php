@@ -17,12 +17,16 @@
 
     table{
         border-collapse: collapse;
-        text-align: center;
+        text-align: justify;
         margin: 2rem;
     }
 
     td, th {
         padding: 0.5rem;;
+    }
+
+    img{
+        width: 200px;
     }
 
     a, a:visited{

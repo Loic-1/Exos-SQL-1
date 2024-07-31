@@ -16,7 +16,7 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-$sqlQuery = 'SELECT r.nom_recette, r.instructions, c.nom_categorie, r.tps_preparation
+$sqlQuery = 'SELECT r.nom_recette, r.instructions, c.nom_categorie, r.tps_preparation, r.image_recette
 FROM recette r
 INNER JOIN categorie c ON r.id_categorie = c.id_categorie
 WHERE r.id_recette = '.$_GET["id"].'';
@@ -34,6 +34,7 @@ foreach ($recipes as $recipe) {
         <td><?php echo $recipe['instructions']; ?></a></td>
         <td><?php echo $recipe['nom_categorie']; ?></td>
         <td><?php echo $recipe['tps_preparation']; ?> minutes</td>
+        <td><img src="<?php echo $recipe['image_recette']?>" alt=""></td>
     </tr>
 <?php
 }

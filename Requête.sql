@@ -222,14 +222,21 @@ WHERE r.id_recette IN (
 
 )*/
 
-
+/*index.php*/
 SELECT r.nom_recette, c.nom_categorie, r.tps_preparation
 FROM recette r
 INNER JOIN categorie c ON r.id_categorie = c.id_categorie
 GROUP BY r.id_recette
 ORDER BY r.nom_recette;
 
-SELECT r.nom_recette, r.instructions, c.nom_categorie, r.tps_preparation, COUNT(co.id_recette) AS nbIngredients
+/*detailRecette.php*/
+SELECT r.nom_recette, r.instructions, c.nom_categorie, r.tps_preparation
 FROM recette r
 INNER JOIN categorie c ON r.id_categorie = c.id_categorie
-WHERE r.id_recette = 7
+WHERE r.id_recette = 7;
+
+SELECT i.nom_ingredient, co.qte
+FROM recette r
+INNER JOIN composer co ON r.id_recette = co.id_recette
+INNER JOIN ingredient i ON co.id_ingredient = i.id_ingredient
+WHERE r.id_recette = 7;

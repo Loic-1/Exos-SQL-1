@@ -16,7 +16,7 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-$sqlQuery = 'SELECT r.nom_recette, c.nom_categorie, r.tps_preparation, r.id_recette
+$sqlQuery = 'SELECT r.nom_recette, c.nom_categorie, r.tps_preparation, r.id_recette, r.image_recette
 FROM recette r
 INNER JOIN categorie c ON r.id_categorie = c.id_categorie
 GROUP BY r.id_recette
@@ -27,13 +27,14 @@ $recipes = $recipesStatement->fetchAll();
 
 
 echo '<table>';
-echo '<tr><th>Recette</th> <th>Catégorie</th> <th>Temps de préparation</th></tr>';
+echo '<tr><th>Recette</th> <th>Catégorie</th> <th>Temps de préparation</th> <th>Image</th></tr>';
 foreach ($recipes as $recipe) {
 ?>
     <tr>
         <td>  <a href="detailRecette.php?id=<?php echo $recipe['id_recette']; ?>&nom=<?php echo $recipe['nom_recette']; ?>">  <?php echo $recipe['nom_recette']; ?></a></td>
         <td><?php echo $recipe['nom_categorie']; ?></td>
         <td><?php echo $recipe['tps_preparation']; ?> minutes</td>
+        <td><img src="<?php echo $recipe['image_recette']; ?>" alt=""></td>
     </tr>
 <?php
 }
