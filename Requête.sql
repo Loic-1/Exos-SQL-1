@@ -227,4 +227,9 @@ SELECT r.nom_recette, c.nom_categorie, r.tps_preparation
 FROM recette r
 INNER JOIN categorie c ON r.id_categorie = c.id_categorie
 GROUP BY r.id_recette
-ORDER BY r.nom_recette
+ORDER BY r.nom_recette;
+
+SELECT r.nom_recette, r.instructions, c.nom_categorie, r.tps_preparation, COUNT(co.id_recette) AS nbIngredients
+FROM recette r
+INNER JOIN categorie c ON r.id_categorie = c.id_categorie
+WHERE r.id_recette = 7

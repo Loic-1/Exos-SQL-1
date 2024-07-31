@@ -1,9 +1,16 @@
+#discard
 *
 
+#except
+#folders
 !.git/
-!.gitignore
-!Looping1.loo
-!Requête.sql
-!recettes_creation.sql
-!index.php
 !tmp*
+
+#files
+!.gitignore
+!detailRecette.php
+!index.php
+!Looping1.loo
+!recettes_creation.sql
+!Requête.sql
+!style.php
